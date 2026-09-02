@@ -1,73 +1,133 @@
 import "./styles/Work.css";
-import WorkImage from "./WorkImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
+const projects = [
+  {
+    name: "DriveUK",
+    category: "Travel & Vehicle Booking Platform",
+    tools: "React Native, Supabase, REST APIs",
+    description:
+      "Built a long-distance travel booking application for routes between Delhi and Uttarakhand with separate driver and passenger workflows.",
+    features: [
+      "OTP-based authentication",
+      "Driver registration",
+      "Passenger workflow",
+      "Profile management",
+      "Role-based onboarding",
+      "End-to-end booking functionality",
+    ],
+  },
+  {
+    name: "TalentDash",
+    category: "Talent Intelligence Dashboard",
+    tools: "React, TypeScript, Vite, Node.js, Express, PostgreSQL, Drizzle ORM",
+    description:
+      "Built a full-stack talent intelligence dashboard with a React and TypeScript frontend and a Node.js/Express backend.",
+    features: [
+      "React + TypeScript frontend",
+      "Node.js/Express backend",
+      "PostgreSQL database",
+      "Drizzle ORM",
+      "Type-safe data access layer",
+      "REST APIs",
+    ],
+  },
+  {
+    name: "AgriMitrr",
+    category: "Smart Agricultural Advisory",
+    tools: "AI, Data, Web technologies",
+    description:
+      "Conceptualized an agricultural advisory platform designed to help farmers make better decisions through technology and AI-powered recommendations.",
+    features: [
+      "Soil and crop suitability",
+      "Weather-based recommendations",
+      "Pest and disease detection",
+      "Multilingual support",
+      "SMS/IVR fallback",
+      "Market-linkage capabilities",
+    ],
+  },
+];
+
 const Work = () => {
   useGSAP(() => {
-  let translateX: number = 0;
+    let translateX: number = 0;
 
-  function setTranslateX() {
-    const box = document.getElementsByClassName("work-box");
-    const rectLeft = document
-      .querySelector(".work-container")!
-      .getBoundingClientRect().left;
-    const rect = box[0].getBoundingClientRect();
-    const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-    let padding: number =
-      parseInt(window.getComputedStyle(box[0]).padding) / 2;
-    translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
-  }
+    function setTranslateX() {
+      const box = document.getElementsByClassName("work-box");
+      if (box.length === 0) return;
+      const rectLeft = document
+        .querySelector(".work-container")!
+        .getBoundingClientRect().left;
+      const rect = box[0].getBoundingClientRect();
+      const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
+      const padding: number =
+        parseInt(window.getComputedStyle(box[0]).padding) / 2;
+      translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
+    }
 
-  setTranslateX();
+    setTranslateX();
 
-  let timeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".work-section",
-      start: "top top",
-      end: `+=${translateX}`, // Use actual scroll width
-      scrub: true,
-      pin: true,
-      id: "work",
-    },
-  });
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".work-section",
+        start: "top top",
+        end: `+=${translateX}`,
+        scrub: true,
+        pin: true,
+        id: "work",
+      },
+    });
 
-  timeline.to(".work-flex", {
-    x: -translateX,
-    ease: "none",
-  });
+    timeline.to(".work-flex", {
+      x: -translateX,
+      ease: "none",
+    });
 
-  // Clean up (optional, good practice)
-  return () => {
-    timeline.kill();
-    ScrollTrigger.getById("work")?.kill();
-  };
-}, []);
+    return () => {
+      timeline.kill();
+      ScrollTrigger.getById("work")?.kill();
+    };
+  }, []);
+
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
         <h2>
-          My <span>Work</span>
+          My <span>Projects</span>
         </h2>
         <div className="work-flex">
-          {[...Array(6)].map((_value, index) => (
-            <div className="work-box" key={index}>
+          {projects.map((project, index) => (
+            <div className="work-box" key={project.name}>
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
-
                   <div>
-                    <h4>Project Name</h4>
-                    <p>Category</p>
+                    <h4>{project.name}</h4>
+                    <p>{project.category}</p>
                   </div>
                 </div>
-                <h4>Tools and features</h4>
-                <p>Javascript, TypeScript, React, Threejs</p>
+                <h4>Technologies</h4>
+                <p>{project.tools}</p>
+                <p className="work-description">{project.description}</p>
+                <div className="work-features">
+                  {project.features.map((feature) => (
+                    <span className="work-feature-tag" key={feature}>
+                      {feature}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt="" />
+              <div className="work-placeholder">
+                <div className="work-placeholder-inner">
+                  <span className="work-placeholder-number">0{index + 1}</span>
+                  <span className="work-placeholder-name">{project.name}</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>

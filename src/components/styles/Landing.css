@@ -179,15 +179,11 @@
   font-family: "Geist", sans-serif;
 }
 
-/* .landing-intro h1 span {
-   font-weight: 200; 
-} */
-
 .landing-info {
   position: absolute;
   right: 50%;
   transform: translateX(50%);
-  bottom: 40px;
+  bottom: 100px;
   top: inherit;
   z-index: 9;
 }
@@ -244,6 +240,84 @@ h2.landing-info-h2 {
   top: 0;
   left: 0;
 }
+
+/* Hero Email */
+.landing-email {
+  position: absolute;
+  z-index: 9;
+  bottom: 90px;
+  left: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #b8a0d6;
+  letter-spacing: 1.5px;
+  transition: 0.3s ease;
+}
+
+.landing-email:hover {
+  color: var(--accentColor);
+  text-shadow: 0 0 12px rgba(194, 164, 255, 0.4);
+}
+
+/* CTA Buttons */
+.landing-cta {
+  position: absolute;
+  z-index: 9;
+  bottom: 40px;
+  left: 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.cta-primary {
+  background-color: var(--accentColor);
+  color: var(--backgroundColor);
+  border-color: var(--accentColor);
+}
+
+.cta-primary:hover {
+  background-color: transparent;
+  color: var(--accentColor);
+}
+
+.cta-secondary {
+  background-color: transparent;
+  color: var(--accentColor);
+  border-color: var(--accentColor);
+}
+
+.cta-secondary:hover {
+  background-color: var(--accentColor);
+  color: var(--backgroundColor);
+}
+
+.cta-tertiary {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #eae5ec;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.cta-tertiary:hover {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+}
+
 @media screen and (min-width: 500px) {
   .landing-circle2 {
     display: block;
@@ -267,6 +341,17 @@ h2.landing-info-h2 {
   }
   h2.landing-info-h2 {
     font-size: 38px;
+  }
+  .landing-cta {
+    gap: 14px;
+  }
+  .cta-btn {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+  .landing-email {
+    font-size: 15px;
+    bottom: 100px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -311,12 +396,22 @@ h2.landing-info-h2 {
 
   .landing-info {
     bottom: auto;
-    top: 51%;
+    top: 42%;
     z-index: inherit;
     text-align: left;
     transform: translate(0%, -50%);
     right: auto;
     left: 66%;
+  }
+
+  .landing-cta {
+    bottom: auto;
+    top: 60%;
+  }
+
+  .landing-email {
+    bottom: auto;
+    top: 56%;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -329,11 +424,20 @@ h2.landing-info-h2 {
 
   .landing-info {
     bottom: auto;
-    top: 51%;
+    top: 42%;
     z-index: inherit;
     text-align: left;
     transform: translate(0%, -50%);
     right: auto;
+    left: 70%;
+  }
+
+  .landing-cta {
+    top: 60%;
+  }
+
+  .landing-email {
+    top: 56%;
     left: 70%;
   }
 }

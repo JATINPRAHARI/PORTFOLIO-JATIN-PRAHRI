@@ -1,0 +1,195 @@
+.education-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  opacity: 1;
+  height: auto;
+  margin: auto;
+  padding: 120px 0px;
+}
+
+.education-section h2 {
+  font-size: 70px;
+  line-height: 70px;
+  font-weight: 400;
+  text-align: center;
+  background: linear-gradient(0deg, #7f40ff, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.education-section h2 > span {
+  font-family: "Geist", sans-serif;
+  font-weight: 300;
+}
+
+.section-subtitle {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--accentColor);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.education-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.education-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: 0.3s ease;
+}
+
+.education-card:hover {
+  border-color: rgba(194, 164, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.education-card-header h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.education-card-header h5 {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--accentColor);
+  margin: 0 0 8px 0;
+}
+
+.education-degree {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+  color: #ccc;
+}
+
+.education-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.education-detail {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accentColor);
+}
+
+.education-year {
+  font-size: 13px;
+  color: #888;
+}
+
+.cert-card {
+  border-color: rgba(194, 164, 255, 0.2);
+}
+
+.skills-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 14px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.skill-tag:hover {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+}
+
+.interest-tag {
+  background-color: rgba(194, 164, 255, 0.08);
+  border-color: rgba(194, 164, 255, 0.2);
+}
+
+.languages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.language-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+.language-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.language-level {
+  font-size: 13px;
+  color: #888;
+}
+
+@media only screen and (max-width: 900px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .education-section h2 {
+    font-size: 50px;
+    line-height: 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .education-section {
+    padding: 70px 0px;
+  }
+
+  .education-section h2 {
+    font-size: 40px;
+    line-height: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .section-subtitle {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .education-section h2 {
+    font-size: 80px;
+    line-height: 80px;
+  }
+}

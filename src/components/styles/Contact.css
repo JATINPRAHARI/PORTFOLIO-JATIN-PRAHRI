@@ -4,10 +4,23 @@
   margin-top: 100px;
 }
 .contact-section h3 {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: none;
   margin: 0;
+  background: linear-gradient(0deg, #7f40ff, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.contact-subtitle {
+  font-size: 16px;
+  color: #aaa;
+  margin-top: 16px;
+  margin-bottom: 50px;
+  max-width: 600px;
+  line-height: 1.6;
 }
 .contact-flex {
   display: flex;
@@ -29,6 +42,9 @@
 a.contact-social {
   font-size: 25px;
   border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .contact-box h2 {
   font-weight: 400;
@@ -48,7 +64,7 @@ a.contact-social {
 }
 @media only screen and (max-width: 1600px) {
   .contact-section h3 {
-    font-size: 50px;
+    font-size: 45px;
   }
   .contact-box h2 {
     font-size: 20px;
@@ -59,7 +75,7 @@ a.contact-social {
 }
 @media only screen and (max-width: 1300px) {
   .contact-section h3 {
-    font-size: 40px;
+    font-size: 38px;
   }
   .contact-box h2 {
     font-size: 18px;
